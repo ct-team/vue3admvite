@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { createPinia } from 'pinia';
+import pinia from '@/stores/store';
 
 import mitt from 'mitt';
 
@@ -10,5 +10,5 @@ console.log(import.meta.env);
 const app = createApp(App);
 app.config.globalProperties.$bus = mitt();
 
-app.use(createPinia());
+app.use(pinia);
 app.mount('#app');

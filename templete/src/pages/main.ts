@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { createPinia } from 'pinia';
+import pinia from '@/stores/store';
 import router from '@/router';
 import ElementPlus from 'element-plus';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
@@ -23,12 +23,11 @@ import {
   TableColumn,
   Input
 } from 'ct-dart3';
-console.log(import.meta.env);
 
 const app = createApp(App);
 app.config.globalProperties.$bus = mitt();
 app
-  .use(createPinia())
+  .use(pinia)
   .use(router)
   .use(ElementPlus, { size: 'small', zIndex: 3000, locale: zhCn })
   .use(ElementPlusIconsVue)
