@@ -17,7 +17,7 @@
     "build:inner": "vite build --mode stable && gulp move --env stable"
   },
   "dependencies": {
-    "ct-dart3": "^0.2.4",
+    "ct-dart3": "^0.3.0",
     "element-plus": "^2.3.8",
     "mitt": "^3.0.1",
     "pinia": "2.0.36",
