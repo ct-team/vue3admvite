@@ -21,6 +21,7 @@ import type { ResponseInfo } from '@/types/common.d';
 import type { TypeSearchInfo } from '@/types/index.d';
 import { apiGetGoodsList, apiGetGoodsType, apiGetGrantType } from '@/api/index';
 import useCommon from '@/hooks/use-common';
+import Bus from '@/assets/js/bus';
 const { router, proxy } = useCommon();
 const searchRef = ref();
 const tableData = ref({});
@@ -66,7 +67,7 @@ const refreshTable = (data?: TypeSearchInfo, complete?: any) => {
     });
 };
 const bindBusEvent = () => {
-  proxy.$bus.on('refreshTable', (index: number) => {
+  Bus.on('refreshTable', (index: number) => {
     onPageChange(index);
   });
 };
@@ -80,7 +81,7 @@ const routerPush = (path: string, id: number): void => {
 };
 
 onBeforeUnmount(() => {
-  proxy.$bus.off('refreshTable');
+  Bus.off('refreshTable');
 });
 onMounted(() => {
   (searchRef as any).value.search();

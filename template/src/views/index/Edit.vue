@@ -82,6 +82,7 @@ import type { FormInstance } from 'element-plus';
 import { showMessage } from '@/utils';
 import { ErrorCheckTip } from '@/config';
 import { filtersGoodsDetail } from './components/send';
+import Bus from '@/assets/js/bus';
 import useCommon from '@/hooks/use-common';
 const { proxy, route, router, store } = useCommon();
 
@@ -212,7 +213,7 @@ const onSubmit = () => {
         if (res.Code === 0) {
           showMessage('保存成功', 'success');
           const pageIndex = isEdit ? 0 : 1;
-          proxy.$bus.emit('refreshTable', pageIndex);
+          Bus.emit('refreshTable', pageIndex);
           status.value = false;
         }
       });

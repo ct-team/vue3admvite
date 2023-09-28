@@ -25,7 +25,6 @@ import {
 } from 'ct-dart3';
 
 const app = createApp(App);
-app.config.globalProperties.$bus = mitt();
 app
   .use(pinia)
   .use(router)

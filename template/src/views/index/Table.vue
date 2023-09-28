@@ -75,6 +75,7 @@ import { apiDeleteGoods, apiEditWarning } from '@/api/index';
 import useCommon from '@/hooks/use-common';
 import type { ResponseInfo, TypeList } from '@/types/common.d';
 import type { TypeTableData } from '@/types/index.d';
+import Bus from '@/assets/js/bus';
 const { proxy } = useCommon();
 defineProps({
   data: { type: Object, default: () => {} },
@@ -101,7 +102,7 @@ const onDel = (row: TypeTableData) => {
   apiDeleteGoods(row.GoodsId).then((res: ResponseInfo) => {
     if (res.Code === 0) {
       showMessage('删除成功', 'success');
-      proxy.$bus.emit('refreshTable');
+      Bus.emit('refreshTable');
       return;
     }
     row._delLoading = false;
