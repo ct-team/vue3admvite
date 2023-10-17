@@ -48,7 +48,8 @@
       <template #default="scope">
         <el-button
           icon="edit"
-          type="text"
+          type="primary"
+          link
           @click="onEdit(scope.row.GoodsId)"
           v-if="proxy.$dart.permission.is('CMGoodsEdit')"
         >
@@ -60,7 +61,9 @@
           v-if="scope.row.IsCanDelete && proxy.$dart.permission.is('CMGoodsEdit')"
         >
           <template #reference>
-            <el-button :loading="scope.row._delLoading" type="text" icon="Delete"> 删除 </el-button>
+            <el-button :loading="scope.row._delLoading" type="primary" link icon="Delete">
+              删除
+            </el-button>
           </template>
         </el-popconfirm>
       </template>

@@ -8,8 +8,6 @@ import { alias } from '@/config/permission';
 import { clearEmptyData, showMessage } from '@/utils';
 import { routerInit } from '@/assets/js/permission';
 import type { ResponseInfo } from '@/types/common.d';
-import mitt from 'mitt';
-
 import App from './App.vue';
 import {
   Toolbar,
